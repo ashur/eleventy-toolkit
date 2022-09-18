@@ -1,0 +1,25 @@
+{
+  "name": "@aaashur/eleventy-toolkit",
+  "version": "0.1.0",
+  "description": "Common filters and shortcodes",
+  "main": ".eleventy.js",
+  "scripts": {
+    "lint": "eslint 'src/**/*.js' 'test/**/*.js'",
+    "test": "mocha ./test/**/*.js"
+  },
+  "author": {
+    "name": "Ashur Cabrera",
+    "url": "https://ashur.cab/rera"
+  },
+  "license": "ISC",
+  "devDependencies": {
+    "@11ty/eleventy": "^1.0.2",
+    "chai": "^4.3.6",
+    "eslint": "^8.23.1",
+    "eslint-plugin-sort-requires": "^2.1.0",
+    "mocha": "^10.0.0"
+  },
+  "dependencies": {
+    "require-all": "^3.0.0"
+  }
+}
