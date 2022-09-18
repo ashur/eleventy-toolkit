@@ -22,7 +22,7 @@ Join truthy, non-duplicate argument values into a space-delimited string.
 would return
 
 ```html
-<h2 class="block__element block__element--red">
+<h2 class="block__element block__element--turquoise">
     Section Title
 </h2>
 ```
