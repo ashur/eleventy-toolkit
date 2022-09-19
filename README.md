@@ -44,4 +44,4 @@ module.exports = (eleventyConfig) => {
 };
 ```
 
-> See [shortcodes documentation](https://github.com/ashur/eleventy-toolkit/blob/main/src/shortcodes/README.md) for details
+> See [filters](https://github.com/ashur/eleventy-toolkit/blob/main/src/filters/README.md) and [shortcode](https://github.com/ashur/eleventy-toolkit/blob/main/src/shortcodes/README.md) documentation for details.
