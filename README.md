@@ -14,6 +14,29 @@ Next, include the following in your [Eleventy config file](https://www.11ty.dev/
 
 ```javascript
 module.exports = (eleventyConfig) => {
-	eleventyConfig.addPlugin(require("@aaashur/eleventy-toolkit"));
+    eleventyConfig.addPlugin(require("@aaashur/eleventy-toolkit"));
 };
 ```
+
+### Options
+
+Shortcodes and paired shortcodes may support configuration options, which can be set using the `pluginOptions` object:
+
+```javascript
+module.exports = (eleventyConfig) => {
+    const toolkitOptions = {
+        shortcodes: {
+            includeGlob: {
+                includesDir: __dirname + "/src/_includes",
+            },
+        },
+    };
+
+    eleventyConfig.addPlugin(
+        require("@aaashur/eleventy-toolkit",
+        toolkitOptions,
+    ));
+};
+```
+
+> See [shortcodes documentation](https://github.com/ashur/eleventy-toolkit/blob/main/src/shortcodes/README.md) for details
