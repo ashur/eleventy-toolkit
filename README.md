@@ -33,9 +33,9 @@ module.exports = (eleventyConfig) => {
     };
 
     eleventyConfig.addPlugin(
-        require("@aaashur/eleventy-toolkit",
+        require("@aaashur/eleventy-toolkit"),
         toolkitOptions,
-    ));
+    );
 };
 ```
 
