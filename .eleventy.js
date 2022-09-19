@@ -11,40 +11,21 @@ const shortcodes = require( "require-all" )( __dirname + "/src/shortcodes/" );
 module.exports = ( eleventyConfig, pluginOptions = {} ) =>
 {
 	/* Filters */
-	Object.entries( filters ).forEach( ( [name, fn] ) =>
+	Object.entries( filters ).forEach( ( [name, filter] ) =>
 	{
-		eleventyConfig.addFilter( name, fn );
+		eleventyConfig.addFilter( name, filter( pluginOptions ) );
 	} );
 
 	/* Shortcodes */
-	Object.entries( shortcodes ).forEach( ( [name, { pairedShortcode, shortcode, options }] ) =>
+	Object.entries( shortcodes ).forEach( ( [name, { pairedShortcode, shortcode }] ) =>
 	{
 		if( pairedShortcode )
 		{
-			// Register paired shortcode options
-			if( pluginOptions.pairedShortcodes[name] )
-			{
-				Object.entries( pluginOptions.pairedShortcodes[name] ).forEach( ( [key, value] ) =>
-				{
-					options[key] = value;
-				} );
-			}
-
-			eleventyConfig.addPairedShortcode( name, pairedShortcode );
+			eleventyConfig.addPairedShortcode( name, pairedShortcode( pluginOptions ) );
 		}
-
-		if( shortcode )
+		else if( shortcode )
 		{
-			// Register shortcode options
-			if( pluginOptions.shortcodes[name] )
-			{
-				Object.entries( pluginOptions.shortcodes[name] ).forEach( ( [key, value] ) =>
-				{
-					options[key] = value;
-				} );
-			}
-
-			eleventyConfig.addShortcode( name, shortcode );
+			eleventyConfig.addShortcode( name, shortcode( pluginOptions ) );
 		}
 	} );
 };
