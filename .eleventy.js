@@ -13,7 +13,7 @@ module.exports = ( eleventyConfig, pluginOptions = {} ) =>
 	/* Filters */
 	Object.entries( filters ).forEach( ( [name, filter] ) =>
 	{
-		eleventyConfig.addFilter( name, filter( pluginOptions ) );
+		eleventyConfig.addFilter( name, filter( pluginOptions.filters?.[name] ) );
 	} );
 
 	/* Shortcodes */
@@ -21,11 +21,11 @@ module.exports = ( eleventyConfig, pluginOptions = {} ) =>
 	{
 		if( pairedShortcode )
 		{
-			eleventyConfig.addPairedShortcode( name, pairedShortcode( pluginOptions ) );
+			eleventyConfig.addPairedShortcode( name, pairedShortcode( pluginOptions.pairedShortcodes?.[name] ) );
 		}
 		else if( shortcode )
 		{
-			eleventyConfig.addShortcode( name, shortcode( pluginOptions ) );
+			eleventyConfig.addShortcode( name, shortcode( pluginOptions.shortcodes?.[name] ) );
 		}
 	} );
 };
