@@ -29,7 +29,7 @@ would return
 
 ## includeGlob
 
-Use a glob pattern to include files
+Use a glob pattern to include all matching files.
 
 > Inspired by the `include-all` suggestion in [Super Simple CSS Concatenation](https://www.11ty.dev/docs/quicktips/concatenate/)
 
