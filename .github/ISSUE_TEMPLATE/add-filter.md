@@ -2,9 +2,14 @@
 name: Add Filter
 about: Checklist for creating a new filter
 title: Add [FILTER]
-labels: 'enhancement'
+labels: enhancement, filter
 assignees: ''
+
 ---
+
+## Description
+
+> Brief description of filter
 
 ## Tasks
 

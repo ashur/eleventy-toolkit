@@ -2,9 +2,14 @@
 name: Add Shortcode
 about: Checklist for creating a new shortcode
 title: Add [SHORTCODE]
-labels: 'enhancement'
+labels: enhancement, shortcode
 assignees: ''
+
 ---
+
+## Description
+
+> Brief description of shortcode
 
 ## Tasks
 
