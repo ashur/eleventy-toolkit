@@ -1,6 +1,6 @@
 /* global describe, it */
+const classnames = require( "../../src/shortcodes/classnames" ).shortcode();
 const { assert } = require( "chai" );
-const { shortcode: classnames } = require( "../../src/shortcodes/classnames" );
 
 describe( "classnames (shortcode)", () =>
 {

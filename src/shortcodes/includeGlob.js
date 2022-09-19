@@ -3,14 +3,6 @@ const fs = require( "fs" );
 const path = require( "path" );
 
 /**
- * @type {Object}
- * @property {string} [includesDir]
- */
-module.exports.options = {
-	includesDir: null,
-};
-
-/**
  * @param {string|Array} pattern
  * @param {string} includesDir
  * @returns {string}
@@ -34,19 +26,26 @@ const includeAll = ( pattern, includesDir ) =>
 };
 
 /**
- *
- *
- * @param {string} pattern
- * @return {string}
+ * @param {Object} options
+ * @param {string} [options.includesDir]
+ * @returns {Function}
  */
-module.exports.shortcode = ( pattern ) =>
+module.exports.shortcode = ( options={} ) =>
 {
-	const { includesDir } = module.exports.options;
-
-	if( !includesDir )
+	/**
+	 * Read and return contents of all files matching glob pattern.
+	 * @param {string} pattern
+	 * @return {string}
+	 */
+	return ( pattern ) =>
 	{
-		throw new Error( "includeGlob option 'includesDir' is undefined" );
-	}
+		const { includesDir } = options;
 
-	return includeAll( pattern, includesDir );
+		if( !includesDir )
+		{
+			throw new Error( "includeGlob option 'includesDir' is undefined" );
+		}
+
+		return includeAll( pattern, includesDir );
+	};
 };

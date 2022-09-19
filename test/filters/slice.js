@@ -1,5 +1,5 @@
 /* global describe, it */
-const slice = require( "../../src/filters/slice" );
+const slice = require( "../../src/filters/slice" )();
 const { assert } = require( "chai" );
 
 describe( "slice (filter)", () =>
