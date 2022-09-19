@@ -27,6 +27,38 @@ would return
 </h2>
 ```
 
+## includeGlob
+
+Use a glob pattern to include files
+
+> Inspired by the `include-all` suggestion in [Super Simple CSS Concatenation](https://www.11ty.dev/docs/quicktips/concatenate/)
+
+### Usage
+
+```njk
+<style>
+    {% includeGlob "**/*.css" %}
+</style>
+```
+
+might return
+
+```html
+<style>
+    .blue {
+        color: blue;
+    }
+
+    .green {
+        color: green;
+    }
+
+    .red {
+        color: red;
+    }
+</style>
+```
+
 ## styles
 
 Join truthy object values into a semicolon-delimited string.
