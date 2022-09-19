@@ -11,18 +11,18 @@ To override this behavior, set the `minify` configuration option:
 
 ```javascript
 module.exports = (eleventyConfig) => {
-	const toolkitOptions = {
-		filters: {
-			cssmin: {
-				minify: true,
-			},
-		},
-	};
+    const toolkitOptions = {
+        filters: {
+            cssmin: {
+                minify: true,
+            },
+        },
+    };
 
-	eleventyConfig.addPlugin(
-		require("@aaashur/eleventy-toolkit"),
-		toolkitOptions,
-	);
+    eleventyConfig.addPlugin(
+        require("@aaashur/eleventy-toolkit"),
+        toolkitOptions,
+    );
 };
 ```
 
@@ -31,11 +31,11 @@ module.exports = (eleventyConfig) => {
 ```njk
 {% set styles %}
 .blue {
-	color: blue;
+    color: blue;
 }
 
 .yellow {
-	color: yellow;
+    color: yellow;
 }
 {% endset %}
 
