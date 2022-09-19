@@ -21,5 +21,8 @@
   },
   "dependencies": {
     "require-all": "^3.0.0"
-  }
+  },
+  "eslintIgnore": [
+    "!.*"
+  ]
 }

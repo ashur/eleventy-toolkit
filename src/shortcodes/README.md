@@ -27,6 +27,59 @@ would return
 </h2>
 ```
 
+## includeGlob
+
+Use a glob pattern to include all matching files.
+
+> Inspired by the `include-all` suggestion in [Super Simple CSS Concatenation](https://www.11ty.dev/docs/quicktips/concatenate/)
+
+### Configuration
+
+`includeGlob` requires a configuration property `includesDir`, which should match the `includes` folder used by Eleventy:
+
+```javascript
+module.exports = (eleventyConfig) => {
+    const toolkitOptions = {
+        shortcodes: {
+            includeGlob: {
+                includesDir: __dirname + "/src/_includes",
+            },
+        },
+    };
+
+    eleventyConfig.addPlugin(
+        require("@aaashur/eleventy-toolkit"),
+        toolkitOptions,
+    );
+};
+```
+
+### Usage
+
+```njk
+<style>
+    {% includeGlob "**/*.css" %}
+</style>
+```
+
+might return
+
+```html
+<style>
+    .blue {
+        color: blue;
+    }
+
+    .green {
+        color: green;
+    }
+
+    .red {
+        color: red;
+    }
+</style>
+```
+
 ## styles
 
 Join truthy object values into a semicolon-delimited string.
