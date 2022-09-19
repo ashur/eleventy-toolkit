@@ -20,11 +20,16 @@ module.exports = (eleventyConfig) => {
 
 ### Options
 
-Shortcodes and paired shortcodes may support configuration options, which can be set using the `pluginOptions` object:
+Filters, shortcodes, and paired shortcodes may support configuration options, which can be set using the `pluginOptions` object:
 
 ```javascript
 module.exports = (eleventyConfig) => {
     const toolkitOptions = {
+        filters: {
+            cssmin: {
+                minify: true, // always minify CSS
+            },
+        },
         shortcodes: {
             includeGlob: {
                 includesDir: __dirname + "/src/_includes",
