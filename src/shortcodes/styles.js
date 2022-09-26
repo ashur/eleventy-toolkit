@@ -25,7 +25,11 @@ module.exports.shortcode = () =>
 
 		return Object.entries( args )
 			/* eslint-disable-next-line no-unused-vars */
-			.filter( ( [property, value] ) => value ) // only include truthy values
+			.filter( ( [property, value] ) => (
+				value !== false &&
+				value !== null &&
+				value !== undefined
+			) ) // only include truthy values
 			.map( ( [property, value] ) => `${property}: ${value}` )
 			.join( "; " );
 	};
