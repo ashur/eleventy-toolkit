@@ -57,7 +57,7 @@ Attributes with `null` or `undefined` values are omitted:
 would return:
 
 ```html
-<article class=\"card\" aria-hidden=\"false\">
+<article class="card" aria-hidden="false">
     <p>Hello, world.</p>
 </article>
 ```
