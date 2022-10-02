@@ -4,6 +4,7 @@
   "description": "Common filters and shortcodes",
   "main": ".eleventy.js",
   "scripts": {
+    "dev": "onchange -i 'src/**/*.js' 'test/**/*.js' -- npm run test",
     "lint": "eslint 'src/**/*.js' 'test/**/*.js'",
     "test": "mocha ./test/**/*.js"
   },
