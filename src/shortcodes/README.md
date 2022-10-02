@@ -27,6 +27,67 @@ would return
 </h2>
 ```
 
+## createElement
+
+Build HTML elements, with support for dynamic tag names and attributes.
+
+> Inspired by `React.createElement()`
+
+### Usage
+
+```njk
+{% createElement <tagName>, [<attributes>, [<selfClosing>]] %}
+    <!-- <innerHTML> -->
+{% endcreateElement %}
+```
+
+Attributes with `null` or `undefined` values are omitted:
+
+```njk
+{% createElement "article", {
+    class: "card",
+    href: undefined,
+    "data-example": null,
+    "aria-hidden": false,
+} %}
+    <p>Hello, world.</p>
+{% endcreateElement %}
+```
+
+would return:
+
+```html
+<article class=\"card\" aria-hidden=\"false\">
+    <p>Hello, world.</p>
+</article>
+```
+
+Build self-closing tags by setting `selfClosing=true`:
+
+```njk
+{% createElement "input", {
+    type: "button"
+}, true %}
+    <p>innerHTML is ignored when building self-closing tags</p>
+{% endcreateElement %}
+```
+
+```html
+<input type="button">
+```
+
+If `tagName` is undefined, `createElement` will return `innerHTML` only:
+
+```njk
+{% createElement "a" if link, { href: link } -%}
+    <p>Hello, world</p>
+{%- endcreateElement %}
+```
+
+```html
+<p>Hello, world</p>
+```
+
 ## includeGlob
 
 Use a glob pattern to include all matching files.
