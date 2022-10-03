@@ -60,7 +60,9 @@ Attributes with `null` or `undefined` values are omitted:
 </article>
 ```
 
-If `attributes` contains a property `class` whose value is an array, [`classnames`](#classnames) will be used automatically to return a space-delimited string containing only truthy, non-duplicate values:
+---
+
+If `attributes` contains a `class` property whose value is an array, [`classnames`](#classnames) will be used automatically to return a space-delimited string containing only truthy, non-duplicate values:
 
 ```njk
 {% createElement "div", {
@@ -80,6 +82,8 @@ If `attributes` contains a property `class` whose value is an array, [`classname
     <p>Hello, world.</p>
 </div>
 ```
+
+---
 
 If `attributes` contains a `style` property whose value is an object, [`styles`](#styles) will be used automatically to return a semicolon-delimited string containing only truthy values:
 
@@ -103,6 +107,8 @@ If `attributes` contains a `style` property whose value is an object, [`styles`]
 </div>
 ```
 
+---
+
 Build self-closing tags by setting `selfClosing=true`:
 
 ```njk
@@ -116,6 +122,8 @@ Build self-closing tags by setting `selfClosing=true`:
 ```html
 <input type="button">
 ```
+
+---
 
 If `tagName` is undefined, `createElement` will return `innerHTML` only:
 
