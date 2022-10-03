@@ -48,7 +48,7 @@ Attributes with `null` or `undefined` values are omitted:
     class: "card",
     href: undefined,
     "data-example": null,
-    "aria-hidden": false,
+    "aria-hidden": false
 } %}
     <p>Hello, world.</p>
 {% endcreateElement %}
@@ -94,7 +94,7 @@ If `attributes` contains a `style` property whose value is an object, [`styles`]
         "--false-property": false,
         "--null-property": null,
         "--undefined-property": undefined,
-        "background-color": "red",
+        "background-color": "red"
     },
 } %}
     <p>Hello, world.</p>
