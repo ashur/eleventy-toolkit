@@ -1,4 +1,5 @@
 const classnames = require( "../lib/classnames" );
+const styles = require( "../lib/styles" );
 
 /**
  * @returns {Function}
@@ -71,12 +72,15 @@ module.exports.pairedShortcode = () =>
 				{
 					return ` ${key}="${classnames.apply( null, value )}"`;
 				}
-				else
+
+				if( key === "style" && typeof value === "object" )
 				{
-					if( value !== undefined && value !== null )
-					{
-						return ` ${key}="${value}"`;
-					}
+					return ` ${key}="${styles( value )}"`;
+				}
+
+				if( value !== undefined && value !== null )
+				{
+					return ` ${key}="${value}"`;
 				}
 			} )
 			.join( "" );

@@ -81,6 +81,28 @@ If `attributes` contains a property `class` whose value is an array, [`classname
 </div>
 ```
 
+If `attributes` contains a `style` property whose value is an object, [`styles`](#styles) will be used automatically to return a semicolon-delimited string containing only truthy values:
+
+```njk
+{% createElement "div", {
+    style: {
+        "--custom-property": "10px",
+        "--false-property": false,
+        "--null-property": null,
+        "--undefined-property": undefined,
+        "background-color": "red",
+    },
+} %}
+    <p>Hello, world.</p>
+{% endcreateElement %}
+```
+
+```html
+<div style="--custom-property: 10px; background-color: red"></div>
+    <p>Hello, world.</p>
+</div>
+```
+
 Build self-closing tags by setting `selfClosing=true`:
 
 ```njk
