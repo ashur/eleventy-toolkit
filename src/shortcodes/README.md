@@ -41,8 +41,8 @@ Build HTML elements, with support for dynamic tag names and attributes.
 ### Usage
 
 ```njk
-{% createElement <tagName>, [<attributes>, [<selfClosing>]] %}
-    <!-- <innerHTML> -->
+{% createElement <name>, [<attributes>] %}
+    <innerHTML>
 {% endcreateElement %}
 ```
 
@@ -114,13 +114,11 @@ If `attributes` contains a `style` property whose value is an object, [`styles`]
 
 ---
 
-Build self-closing tags by setting `selfClosing=true`:
+[Empty elements](https://developer.mozilla.org/en-US/docs/Glossary/empty_element) will build self-closing tags automatically:
 
 ```njk
-{% createElement "input", {
-    type: "button"
-}, true %}
-    <p>innerHTML is ignored when building self-closing tags</p>
+{% createElement "input", { type: "button" } %}
+    <p>innerHTML is ignored when building empty elements</p>
 {% endcreateElement %}
 ```
 
@@ -130,7 +128,7 @@ Build self-closing tags by setting `selfClosing=true`:
 
 ---
 
-If `tagName` is undefined, `createElement` will return `innerHTML` only:
+If `name` is undefined, `createElement` will return `innerHTML` only:
 
 ```njk
 {% createElement "a" if link, { href: link } -%}

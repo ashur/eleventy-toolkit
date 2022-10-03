@@ -1,6 +1,8 @@
 /* global describe, it */
-const createElement = require( "../../src/shortcodes/createElement" ).pairedShortcode();
 const { assert } = require( "chai" );
+const { emptyElements, pairedShortcode } = require( "../../src/shortcodes/createElement" );
+
+const createElement = pairedShortcode();
 
 describe( "createElement (paired shortcode)", () =>
 {
@@ -22,14 +24,14 @@ describe( "createElement (paired shortcode)", () =>
 		} );
 	} );
 
-	describe( "#tagName", () =>
+	describe( "#name", () =>
 	{
-		it( "should return an HTML element using the tagName provided", () =>
+		it( "should return an HTML element using the name provided", () =>
 		{
 			assert.equal( createElement( undefined, "a" ), "<a></a>" );
 		} );
 
-		it( "should return innerHTML only if tagName is falsy", () =>
+		it( "should return only innerHTML if name is falsy", () =>
 		{
 			assert.equal(
 				createElement(
@@ -42,6 +44,17 @@ describe( "createElement (paired shortcode)", () =>
 				),
 				"hello, world",
 			);
+		} );
+
+		it( "should return self-closing tag if name is an empty element", () =>
+		{
+			emptyElements.forEach( ( name ) =>
+			{
+				assert.equal(
+					createElement( undefined, name ),
+					`<${name}>`,
+				);
+			} );
 		} );
 	} );
 
@@ -116,39 +129,6 @@ describe( "createElement (paired shortcode)", () =>
 					},
 				),
 				"<div style=\"--custom-property: 10px; background-color: red\"></div>",
-			);
-		} );
-	} );
-
-	describe( "#selfClosing", () =>
-	{
-		it( "should return a self-closing HTML element if specified", () =>
-		{
-			assert.equal(
-				createElement(
-					undefined,
-					"source",
-					{
-						width: 500,
-					},
-					true,
-				),
-				"<source width=\"500\">",
-			);
-		} );
-
-		it( "should ignore innerHTML if self-closing HTML element is specified", () =>
-		{
-			assert.equal(
-				createElement(
-					"hello, world",
-					"source",
-					{
-						width: 500,
-					},
-					true,
-				),
-				"<source width=\"500\">",
 			);
 		} );
 	} );

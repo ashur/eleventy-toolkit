@@ -2,6 +2,29 @@ const classnames = require( "../lib/classnames" );
 const styles = require( "../lib/styles" );
 
 /**
+ * @see https://developer.mozilla.org/en-US/docs/Glossary/empty_element
+ */
+const emptyElements = [
+	"area",
+	"base",
+	"br",
+	"col",
+	"embed",
+	"hr",
+	"img",
+	"input",
+	"keygen",
+	"link",
+	"meta",
+	"param",
+	"source",
+	"track",
+	"wbr",
+];
+
+module.exports.emptyElements = emptyElements;
+
+/**
  * @returns {Function}
  */
 module.exports.pairedShortcode = () =>
@@ -53,14 +76,13 @@ module.exports.pairedShortcode = () =>
 	 * // returns `<input type="button">`
 	 *
 	 * @param {string} innerHTML
-	 * @param {string} tagName
+	 * @param {string} name - name of the HTML element
 	 * @param {Object} [attributes]
-	 * @param {boolean} [selfClosing=false]
 	 * @return {string}
 	 */
-	return ( innerHTML, tagName, attributes = {}, selfClosing=false ) =>
+	return ( innerHTML, name, attributes = {} ) =>
 	{
-		if( !tagName )
+		if( !name )
 		{
 			return innerHTML;
 		}
@@ -85,9 +107,11 @@ module.exports.pairedShortcode = () =>
 			} )
 			.join( "" );
 
-		const openingTag = `<${tagName}${attributesString}${ selfClosing ? "" : ">" }`;
-		const tagContent = selfClosing ? "" : innerHTML || "";
-		const closingTag = selfClosing ? ">" : `</${tagName}>`;
+		const isEmpty = emptyElements.includes( name );
+
+		const openingTag = `<${name}${attributesString}${ isEmpty ? "" : ">" }`;
+		const tagContent = isEmpty ? "" : innerHTML || "";
+		const closingTag = isEmpty ? ">" : `</${name}>`;
 
 		return `${ openingTag }${ tagContent }${ closingTag }`;
 	};
