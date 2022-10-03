@@ -54,12 +54,31 @@ Attributes with `null` or `undefined` values are omitted:
 {% endcreateElement %}
 ```
 
-would return:
-
 ```html
 <article class="card" aria-hidden="false">
     <p>Hello, world.</p>
 </article>
+```
+
+If `attributes` contains a property `class` whose value is an array, [`classnames`](#classnames) will be used automatically to return a space-delimited string containing only truthy, non-duplicate values:
+
+```njk
+{% createElement "div", {
+    class: [
+        "block",
+        "block__element",
+        "block__element--modifier" if false,
+        "block"
+    ]
+} %}
+    <p>Hello, world.</p>
+{% endcreateElement %}
+```
+
+```html
+<div class="block block__element block__element--modifier">
+    <p>Hello, world.</p>
+</div>
 ```
 
 Build self-closing tags by setting `selfClosing=true`:
