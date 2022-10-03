@@ -22,6 +22,20 @@ describe( "createElement (paired shortcode)", () =>
 				"<article class=\"post post--new\" data-example=\"Lorem ipsum\"><h1>Hello, world</h1></article>",
 			);
 		} );
+
+		it( "should ignore innerHTML when rendering empty elements", () =>
+		{
+			assert.equal(
+				createElement(
+					"<p>Hello, world</p>",
+					"img",
+					{
+						src: "https://example.com/example.jpg",
+					},
+				),
+				"<img src=\"https://example.com/example.jpg\">",
+			);
+		} );
 	} );
 
 	describe( "#name", () =>
