@@ -98,6 +98,26 @@ describe( "createElement (paired shortcode)", () =>
 				"<div class=\"block block__element block__element--modifier\"></div>",
 			);
 		} );
+
+		it( "should use `styles` if `style` attribute value is an Object", () =>
+		{
+			assert.equal(
+				createElement(
+					undefined,
+					"div",
+					{
+						style: {
+							"--custom-property": "10px",
+							"--false-property": false,
+							"--null-property": null,
+							"--undefined-property": undefined,
+							"background-color": "red",
+						},
+					},
+				),
+				"<div style=\"--custom-property: 10px; background-color: red\"></div>",
+			);
+		} );
 	} );
 
 	describe( "#selfClosing", () =>
