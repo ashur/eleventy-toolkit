@@ -1,5 +1,8 @@
 # Filters
 
+- [cssmin](#cssmin)
+- [slice](#slice)
+
 ## cssmin
 
 Minify CSS in production builds.

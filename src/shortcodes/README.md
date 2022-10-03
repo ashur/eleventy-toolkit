@@ -1,5 +1,10 @@
 # Shortcodes
 
+- [classnames](#classnames)
+- [createElement](#createElement)
+- [includeGlob](#includeGlob)
+- [styles](#styles)
+
 ## classnames
 
 Join truthy, non-duplicate argument values into a space-delimited string.
