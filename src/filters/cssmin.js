@@ -2,10 +2,12 @@ const CleanCSS = require( "clean-css" );
 
 /**
  * @param {Object} options
- * @param {boolean} [options.minify]
+ * @param {boolean} [options.minify] - whether to run CSS through CleanCSS
+ * @param {Object} [options.options] - options passed to CleanCSS
+ * @see https://www.npmjs.com/package/clean-css#formatting-options
  * @returns {Function}
  */
-module.exports = ( options={} ) =>
+module.exports = ( { minify, options: cleanCssOptions }={} ) =>
 {
 	/**
 	 * Minify CSS in production builds
@@ -14,7 +16,6 @@ module.exports = ( options={} ) =>
 	 */
 	return ( css ) =>
 	{
-		let { minify } = options;
 		if( minify === undefined )
 		{
 			minify = process.env.NODE_ENV === "production";
@@ -27,7 +28,7 @@ module.exports = ( options={} ) =>
 				css = css.toString();
 			}
 
-			return new CleanCSS( {} )
+			return new CleanCSS( cleanCssOptions )
 				.minify( css ).styles;
 		}
 

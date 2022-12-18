@@ -41,4 +41,29 @@ describe( "cssmin (filter)", () =>
 
 		process.env.NODE_ENV = nodeEnv;
 	} );
+
+	it( "should pass `options` to CleanCSS if defined", () =>
+	{
+		const originalCss = `
+:root {
+	--color-red: #f00;
+}
+
+:root {
+	--font-size: 1rem;
+}
+`;
+
+		const cssmin = filter( {
+			minify: true,
+			options: {
+				level: {
+					2: {
+						all: true,
+					},
+				},
+			},
+		} );
+		assert.equal( cssmin( originalCss ), ":root{--color-red:#f00;--font-size:1rem}" );
+	} );
 } );

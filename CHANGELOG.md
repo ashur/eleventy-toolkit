@@ -7,6 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 ### Added
 - Automatic `styles` support to `createElement`
+- Support for defining CleanCSS options
 
 ### Changed
 - `createElement` creates self-closing tags for empty elements automatically instead of relying on the `selfClosing` parameter

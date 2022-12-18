@@ -28,6 +28,9 @@ module.exports = (eleventyConfig) => {
         filters: {
             cssmin: {
                 minify: true, // always minify CSS
+                options: {
+                    // CleanCSS options
+                },
             },
         },
         shortcodes: {
