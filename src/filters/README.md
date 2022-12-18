@@ -18,6 +18,10 @@ module.exports = (eleventyConfig) => {
         filters: {
             cssmin: {
                 minify: true,
+                options: {
+                    // CleanCSS options
+                    // See https://www.npmjs.com/package/clean-css#optimization-levels
+                },
             },
         },
     };
@@ -28,6 +32,8 @@ module.exports = (eleventyConfig) => {
     );
 };
 ```
+
+
 
 ### Usage
 
