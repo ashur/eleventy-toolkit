@@ -83,7 +83,7 @@ If `attributes` contains a `class` property whose value is an array, [`classname
 ```
 
 ```html
-<div class="block block__element block__element--modifier">
+<div class="block block__element">
     <p>Hello, world.</p>
 </div>
 ```
