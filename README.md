@@ -7,7 +7,7 @@ Common filters and shortcodes for use with Eleventy
 To install this plugin, run the following command at the root of your Eleventy project:
 
 ```shell
-npm install ashur/eleventy-toolkit#semver:^v0.2.0
+npm install ashur/eleventy-toolkit#semver:^v0.3.0
 ```
 
 Next, include the following in your [Eleventy config file](https://www.11ty.dev/docs/config/):
