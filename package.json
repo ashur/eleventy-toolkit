@@ -22,7 +22,7 @@
     "onchange": "^7.1.0"
   },
   "dependencies": {
-    "clean-css": "^5.3.1",
+    "clean-css": "^5.3.2",
     "require-all": "^3.0.0"
   },
   "eslintIgnore": [
