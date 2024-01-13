@@ -3,7 +3,7 @@ const filters = require( "require-all" )( __dirname + "/src/filters/" );
 const shortcodes = require( "require-all" )( __dirname + "/src/shortcodes/" );
 
 /**
- * @param {UserConfig} eleventyConfig
+ * @param {import("@11ty/eleventy/src/UserConfig")} eleventyConfig
  * @param {Object} [pluginOptions]
  * @param {Object} [pluginOptions.filters={}]
  * @param {Object} [pluginOptions.pairedShortcodes={}]
