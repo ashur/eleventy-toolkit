@@ -1,3 +1,4 @@
+const classnames = require( "@aaashur/eleventy-plugin-classnames" );
 const createElement = require( "@aaashur/eleventy-plugin-create-element" );
 const filters = require( "require-all" )( __dirname + "/src/filters/" );
 const shortcodes = require( "require-all" )( __dirname + "/src/shortcodes/" );
@@ -32,6 +33,7 @@ module.exports = ( eleventyConfig, pluginOptions = {} ) =>
 	} );
 
 	/* Plugins */
+	eleventyConfig.addPlugin( classnames );
 	eleventyConfig.addPlugin( createElement );
 	eleventyConfig.addPlugin( styles );
 };

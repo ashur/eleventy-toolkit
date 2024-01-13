@@ -7,30 +7,7 @@
 
 ## classnames
 
-Join truthy, non-duplicate argument values into a space-delimited string.
-
-> Inspired by the [classnames](https://www.npmjs.com/package/classnames) package by [JedWatson](https://github.com/JedWatson/classnames)
-
-### Usage
-
-```njk
-{% set color = "turquoise" %}
-{% set sectionTitle = "Section Title" %}
-
-<h2 class="{% classnames
-    "block__element",
-    "block__element--primary" if primary,
-    "block__element--" + color if color
-%}">{{ sectionTitle }}</h2>
-```
-
-would return
-
-```html
-<h2 class="block__element block__element--turquoise">
-    Section Title
-</h2>
-```
+> ↗️ See [`eleventy-plugin-classnames`](https://github.com/ashur/eleventy-plugin-classnames/#usage) for details
 
 ## createElement
 

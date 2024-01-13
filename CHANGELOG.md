@@ -7,6 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 - Switch to `@aaashur/eleventy-plugin-create-element`
 - Switch to `@aaashur/eleventy-plugin-styles`
+- Switch to `@aaashur/eleventy-plugin-classnames`
 
 ## [0.3.1] - 2023-11-05
 - Update to `clean-css@5.3.2` (fixes support for container query syntax)
