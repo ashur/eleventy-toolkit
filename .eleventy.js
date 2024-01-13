@@ -1,6 +1,7 @@
 const createElement = require( "@aaashur/eleventy-plugin-create-element" );
 const filters = require( "require-all" )( __dirname + "/src/filters/" );
 const shortcodes = require( "require-all" )( __dirname + "/src/shortcodes/" );
+const styles = require( "@aaashur/eleventy-plugin-styles" );
 
 /**
  * @param {import("@11ty/eleventy/src/UserConfig")} eleventyConfig
@@ -32,4 +33,5 @@ module.exports = ( eleventyConfig, pluginOptions = {} ) =>
 
 	/* Plugins */
 	eleventyConfig.addPlugin( createElement );
+	eleventyConfig.addPlugin( styles );
 };

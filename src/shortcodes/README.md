@@ -91,26 +91,4 @@ might return
 
 ## styles
 
-Join truthy object values into a semicolon-delimited string.
-
-### Usage
-
-```njk
-{% set backgroundColor = "red" %}
-{% set customProperty = "10px" %}
-{% set sectionTitle = "Section Title" %}
-
-<h2 styles="{% styles {
-    "background-color": backgroundColor,
-    "--custom-property": customProperty,
-    "--undefined-property": "green" if undefinedProperty
-} %}">{{ sectionTitle }}</h2>
-```
-
-would return
-
-```html
-<h2 style="background-color: red; --custom-property: 10px">
-    Section Title
-</h2>
-```
+> ↗️ See [`eleventy-plugin-styles`](https://github.com/ashur/eleventy-plugin-styles/#usage) for details
